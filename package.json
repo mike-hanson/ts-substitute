@@ -1,0 +1,40 @@
+{
+  "name": "ts-substitute",
+  "version": "1.0.0",
+  "description": "A modern framework for creating substitutes from interfaces during TypeScript development based on the NSubstitute philosophy",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docgen": "typedoc",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/testpossessed/ts-substitute.git"
+  },
+  "keywords": [
+    "substitute",
+    "testing",
+    "mock",
+    "fake",
+    "stub",
+    "typescript"
+  ],
+  "author": "Mike Hanson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/testpossessed/ts-substitute/issues"
+  },
+  "homepage": "https://github.com/testpossessed/ts-substitute#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "ts-node": "^8.0.3",
+    "typedoc": "^0.14.2",
+    "typedoc-plugin-external-module-name": "^2.0.0",
+    "typedoc-plugin-internal-external": "^2.0.1",
+    "typescript": "^3.4.1"
+  }
+}

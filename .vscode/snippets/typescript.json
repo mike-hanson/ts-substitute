@@ -1,0 +1,123 @@
+{
+  "mocha-chai-it": {
+    "prefix": "it",
+    "body": [
+      "it('should ${1:doThis}', () => {",
+      "\tassert.fail();$0",
+      "});"
+    ],
+    "desciption": "Creates a stub for a mocha test with chai assert"
+  },
+  "mocha-chai-it-async": {
+    "prefix": "ita",
+    "body": [
+      "it('should ${1:doThis}', async(() => {",
+        "\tassert.fail();$0",
+      "}));"
+    ],
+    "desciption": "Creates a stub for an async mocha test with chai assert"
+  },
+  "mocha-chai-it-method": {
+    "prefix": "itfn",
+    "body": [
+      "it('should implement a method to ${1:doThis}', () => {",
+      "\tassert.isFunction(${2:target}.${3:methodName}, 'Method was not defined');",
+      "\tassert.equal(${2:target}.${3:methodName}.length, ${4:0}, 'Method does not define correct number of parameters');",
+      "});"
+    ],
+    "description": "Creates a stub for a mocha test with chai assert that tests the target implements a method"
+  },
+  "mocha-chai-it-prop": {
+    "prefix": "itprop",
+    "body": [
+      "it('should implement a property to ${1:doThis}', () => {",
+      "\tassert.isFunction(${2:target}.${3:propertyName}, 'Property was not defined');",
+      "\tassert.equal(${2:target}.${3:propertyName}.length, ${4:0}, 'Property defines parameters incorrectly');",
+      "});"
+    ],
+    "description": "Creates a stub for a mocha test with chai assert that tests the target implements a method"
+  },
+  "mocha-chai-suite": {
+    "prefix": "specsuite",
+    "body": [
+      "import { assert } from 'chai';",
+      "",
+      "describe('${1:type}', () => {",
+      "\tlet target:${1:type};",
+      "",
+      "\tbeforeEach(() => {",
+      "\t\ttarget = new ${1:type}();",
+      "\t});",
+      "",
+      "\tit('should be defined', () => {",
+      "\t\tassert.isDefined(target)",
+      "\t});",
+      "\t$0",
+      "});",
+      ""
+    ],
+    "description": "Creates a stub for a mocha test suite with chai assert"
+  },
+  "mocha-chai-nested-suite": {
+    "prefix": "specsubsuite",
+    "body": [
+      "describe('${1:suiteName}', () => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Creates a stub for a nested mocha test suite with chai assert"
+  },
+  "mocha-chai-nested-suite-method": {
+    "prefix": "specsubsuitefn",
+    "body": [
+      "describe('.${1:methodName}', () => {",
+      "\t\tit('should be defined', () => {",
+      "\t\t\tassert.isFunction(target.${1:methodName}, 'Method was not defined');",
+      "\t\t\tassert.equal(target.${1:methodName}.length, ${2:0}, 'Method does not define correct number of parameters');",
+      "\t\t});",
+      "\t$0",
+      "});"
+    ],
+    "description": "Creates a stub for a nested mocha test suite for a method with chai assert"
+  },
+  "interface-field": {
+    "prefix": "ifld",
+    "body": [
+      "${1:name}: ${2:type};",
+      "$0"
+    ],
+    "description": "Creates a field definition for an interface"
+  },
+  "interface-field-optional": {
+    "prefix": "ifldo",
+    "body": [
+      "${1:name}?: ${2:type};",
+      "$0"
+    ],
+    "description": "Creates an optional field definition for an interface"
+  },
+  "interface-field-array": {
+    "prefix": "iflda",
+    "body": [
+      "${1:name}: Array<${2:type}>;",
+      "$0"
+    ],
+    "description": "Creates an array field definition for an interface"
+  },
+  "interface-field-array-optional": {
+    "prefix": "ifldao",
+    "body": [
+      "${1:name}?: Array<${2:type}>;",
+      "$0"
+    ],
+    "description": "Creates an optional array field definition for an interface"
+  },
+  "interface": {
+    "prefix": "ifc",
+    "body": [
+      "interface ${1:name} {",
+      "\t$0",
+      "}"
+    ]
+  }
+}

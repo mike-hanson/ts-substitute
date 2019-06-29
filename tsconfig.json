@@ -1,0 +1,35 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es6",
+		"outDir": "dist",
+		"lib": [
+			"es6",
+			"dom"
+		],
+		"declaration": true,
+		"sourceMap": true,
+		"rootDir": "src",
+		"strict": true,
+		"strictNullChecks": false,
+		"noUnusedLocals": true,
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"noImplicitReturns": true, /* Report error when not all code paths in function return a value. */
+		"noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
+		"noUnusedParameters": true, /* Report errors on unused parameters. */
+	},
+	"exclude": [
+		"node_modules",
+		"dist"
+	],
+	"typedocOptions": {
+		"mode": "modules",
+		"out": "docs",
+		"name": "tsSubstitute - An interface based mocking framework",
+		"exclude": "src/tests/**/*.*",
+		"ignoreCompilerErrors": true,
+		"excludePrivate": true
+	}
+}

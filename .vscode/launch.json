@@ -1,0 +1,37 @@
+{
+	"version": "0.2.0",
+	"configurations": [{
+			"type": "node",
+			"request": "launch",
+			"name": "Debug Unit Tests",
+			"program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+			"args": [
+				"-r",
+				"ts-node/register",
+				"--timeout",
+				"999999",
+				"--colors",
+				"${workspaceFolder}/tests/**/*.test.ts",
+			],
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"protocol": "inspector"
+		},{
+			"type": "node",
+			"request": "launch",
+			"name": "Debug Current Unit Test File",
+			"program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+			"args": [
+				"-r",
+				"ts-node/register",
+				"--timeout",
+				"999999",
+				"--colors",
+				"${file}",
+			],
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"protocol": "inspector"
+		}
+	]
+}
