@@ -20,7 +20,7 @@ type SubstituteMixin<TReturnType> = {
 }
 
 /**
- * Mixing type that adds the returnsAsync method to any substitute
+ * Mixin type that adds the returnsAsync method to any substitute
  */
 type AsyncSubstituteMixin<TReturnType> = {
 

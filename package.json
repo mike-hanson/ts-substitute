@@ -4,9 +4,11 @@
   "description": "A modern framework for creating substitutes from interfaces during TypeScript development based on the NSubstitute philosophy",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha dist/tests/**/*.test.js",
     "docgen": "typedoc",
-    "build": "tsc"
+    "build": "tsc",
+    "prestart": "npm run build && npm run docgen",
+    "start": "node_modules/.bin/lite-server --baseDir='./docs'"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,7 @@
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
     "chai": "^4.2.0",
+    "lite-server": "^2.5.3",
     "mocha": "^6.0.2",
     "ts-node": "^8.0.3",
     "typedoc": "^0.14.2",

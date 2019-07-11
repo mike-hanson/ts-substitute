@@ -17,7 +17,7 @@ declare type SubstituteMixin<TReturnType> = {
     returns: (args: TReturnType) => void;
 };
 /**
- * Mixing type that adds the returnsAsync method to any substitute
+ * Mixin type that adds the returnsAsync method to any substitute
  */
 declare type AsyncSubstituteMixin<TReturnType> = {
     /**

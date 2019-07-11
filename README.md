@@ -1,6 +1,9 @@
 ## ts-substitute
 
-A framework heavily influenced by and true to the API of [NSubstitute](https://github.com/nsubstitute/NSubstitute) that supports TypeScript *development by contract* through mocking of dependencies declared as interfaces or types. 
+A framework heavily influenced by and true to the API of [NSubstitute](https://github.com/nsubstitute/NSubstitute) that supports TypeScript *development by contract* through mocking of dependencies declared as interfaces or types.
+
+### Credit
+Credit for the core ideas of using Proxies and TypeScript types utilised in this library must be given to [Mathias Lykkegaard](https://github.com/ffMathy) and the work he did on his [Substitute](https://github.com/ffMathy/FluffySpoon.JavaScript.Testing.Faking) library.  I initially used his library but hit some problems and struggled to resolve them on the code base at the time, a reflection of my lack of knowledge rather than the code.  I decided to create my own library that was more limited in functionality and supported the way I work using Mathias' ideas and work with it directly from my repo.  
 
 ### What doesn't it do
 First of all let us clarify what ts-substitute doesn't do.  Since it is designed specifically to support *development by contract* ts-substitute has no support for substituting instances of types.  As you will see, when you create a substitute using the factory method you provide a generic type parameter that determines the shape of the substitute.  We do not create an instance of this type nor do we support passing an instance to the factory method as other frameworks do.  Behind the scenes ts-substitute is using proxies as substitutes for the specified type.  We use the advanced type features of TypeScript to ensure the proxies look like the specified type so that editors and tools provide the rich experience they are designed for e.g. intellisense and static type checking.
@@ -24,18 +27,13 @@ export class ServiceConsumer : {
 }
 ```
 
-Then when you testing *ServiceConsumer* you can use ts-substitute to create a substitute for *IService* that can be tested for interactions and configured to return output specific to the test case.  That is it, simple but powerful.  Read on to learn more.
+Then when testing *ServiceConsumer* you can use ts-substitute to create a substitute for *IService* that can be tested for interactions and configured to return output specific to the test case.  That is it, simple but powerful.  Read on to learn more.
 
 ### Installation
-ts-substitute is published as an NPM package and can be installed as a development dependency with the following commmands
+ts-substitute is not published as an NPM package but it can be installed directly from this repo as a development dependency with the following commmands.  However you should be aware that this will download and install the whole repo as it has not been prepared for use with npm yet.
 
 ```bash
-npm install -D ts-substitute
-```
-or
-
-```bash
-yarn add ts-substitute --dev
+npm install -D https://gihub.com/testpossessed/ts-substitute.git
 ```
 
 ### Usage
@@ -44,6 +42,20 @@ ts-substitute exports two static objects *Substitute* and *Arg* these need to be
 ```javascript
 import { Substitute, Arg } from 'ts-substitute';
 ```
+
+#WIP
+This readme is very much a work in progress and should be completed at some point.  However the library was developed applying TDD so the tests should provide plenty of usage examples in the meantime.  Also TypeDoc has been setup to generate API documentation from comments.  The latest API documentation can be generated and viewed with using lite-server.
+
+```bash
+npm start
+```
+
+Or you can run
+
+```bash
+npm run docgen
+```
+Then open docs/index.html in a browser
 
 
 

@@ -82,6 +82,12 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="tssubstitute.html#argumenmatcher" class="tsd-kind-icon">Argumen<wbr>Matcher</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="tssubstitute.html#asyncfunctionsubstitute" class="tsd-kind-icon">Async<wbr>Function<wbr>Substitute</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported"><a href="tssubstitute.html#asyncfunctionsubstitutemixin" class="tsd-kind-icon">Async<wbr>Function<wbr>Substitute<wbr>Mixin</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="tssubstitute.html#asyncparameterlessfunctionsubstitute" class="tsd-kind-icon">Async<wbr>Parameterless<wbr>Function<wbr>Substitute</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported"><a href="tssubstitute.html#asyncparameterlessfunctionsubstitutemixin" class="tsd-kind-icon">Async<wbr>Parameterless<wbr>Function<wbr>Substitute<wbr>Mixin</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported"><a href="tssubstitute.html#asyncsubstitutemixin" class="tsd-kind-icon">Async<wbr>Substitute<wbr>Mixin</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="tssubstitute.html#functionsubstitute" class="tsd-kind-icon">Function<wbr>Substitute</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported"><a href="tssubstitute.html#functionsubstitutemixin" class="tsd-kind-icon">Function<wbr>Substitute<wbr>Mixin</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="tssubstitute.html#objectsubstitute" class="tsd-kind-icon">Object<wbr>Substitute</a></li>
@@ -102,13 +108,203 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+					<a name="argumenmatcher" class="tsd-anchor"></a>
+					<h3>Argumen<wbr>Matcher</h3>
+					<div class="tsd-signature tsd-kind-icon">Argumen<wbr>Matcher<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L224">types.ts:224</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Type definition for matcher functions returned by Args methods</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>arg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>arg: <span class="tsd-signature-type">any</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
+					<a name="asyncfunctionsubstitute" class="tsd-anchor"></a>
+					<h3>Async<wbr>Function<wbr>Substitute</h3>
+					<div class="tsd-signature tsd-kind-icon">Async<wbr>Function<wbr>Substitute<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L127">types.ts:127</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A substitute type compatible with functions that define parameters and return promises</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TArguments</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">TArguments</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">&gt;</span>
+											<span class="tsd-signature-symbol"> &amp; </span>
+											<span class="tsd-signature-type">object</span>
+											<span class="tsd-signature-symbol"> &amp; </span>
+											<span class="tsd-signature-type">object</span>
+										</h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+					<a name="asyncfunctionsubstitutemixin" class="tsd-anchor"></a>
+					<h3>Async<wbr>Function<wbr>Substitute<wbr>Mixin</h3>
+					<div class="tsd-signature tsd-kind-icon">Async<wbr>Function<wbr>Substitute<wbr>Mixin<span class="tsd-signature-symbol">:</span> <a href="tssubstitute.html#asyncsubstitutemixin" class="tsd-signature-type">AsyncSubstituteMixin</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L82">types.ts:82</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Mixin type that adds the andDoes method to members that are async
+							functions with paratmers</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
+					<a name="asyncparameterlessfunctionsubstitute" class="tsd-anchor"></a>
+					<h3>Async<wbr>Parameterless<wbr>Function<wbr>Substitute</h3>
+					<div class="tsd-signature tsd-kind-icon">Async<wbr>Parameterless<wbr>Function<wbr>Substitute<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L115">types.ts:115</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A substitute type compatible with functions that do not define parameters</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">&gt;</span>
+											<span class="tsd-signature-symbol"> &amp; </span>
+											<span class="tsd-signature-type">object</span>
+											<span class="tsd-signature-symbol"> &amp; </span>
+											<span class="tsd-signature-type">object</span>
+										</h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+					<a name="asyncparameterlessfunctionsubstitutemixin" class="tsd-anchor"></a>
+					<h3>Async<wbr>Parameterless<wbr>Function<wbr>Substitute<wbr>Mixin</h3>
+					<div class="tsd-signature tsd-kind-icon">Async<wbr>Parameterless<wbr>Function<wbr>Substitute<wbr>Mixin<span class="tsd-signature-symbol">:</span> <a href="tssubstitute.html#asyncsubstitutemixin" class="tsd-signature-type">AsyncSubstituteMixin</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L52">types.ts:52</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Mixin type that adds the andDoes method to members that are
+							async functions and do not define parameters</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+					<a name="asyncsubstitutemixin" class="tsd-anchor"></a>
+					<h3>Async<wbr>Substitute<wbr>Mixin</h3>
+					<div class="tsd-signature tsd-kind-icon">Async<wbr>Substitute<wbr>Mixin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L25">types.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Mixin type that adds the returnsAsync method to any substitute</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>returns<wbr>Async<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Configures a member to return a specific value wrapped in a promise</p>
+									</div>
+								</div>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter-siganture">
+										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+										</ul>
+										<ul class="tsd-descriptions">
+											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>args: <span class="tsd-signature-type">TReturnType</span></h5>
+													</li>
+												</ul>
+												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="functionsubstitute" class="tsd-anchor"></a>
 					<h3>Function<wbr>Substitute</h3>
 					<div class="tsd-signature tsd-kind-icon">Function<wbr>Substitute<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:115</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L121">types.ts:121</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -149,7 +345,7 @@
 					<div class="tsd-signature tsd-kind-icon">Function<wbr>Substitute<wbr>Mixin<span class="tsd-signature-symbol">:</span> <a href="tssubstitute.html#substitutemixin" class="tsd-signature-type">SubstituteMixin</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:41</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L67">types.ts:67</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -165,7 +361,7 @@
 					<div class="tsd-signature tsd-kind-icon">Object<wbr>Substitute<span class="tsd-signature-symbol">:</span> <a href="tssubstitute.html#objectsubstitutetransformation" class="tsd-signature-type">ObjectSubstituteTransformation</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:127</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L182">types.ts:182</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -181,7 +377,7 @@
 					<div class="tsd-signature tsd-kind-icon">Object<wbr>Substitute<wbr>Transformation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:86</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L169">types.ts:169</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -213,7 +409,7 @@
 					<div class="tsd-signature tsd-kind-icon">Omit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Exclude</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">keyof T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:10</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L10">types.ts:10</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -228,7 +424,7 @@
 					<div class="tsd-signature tsd-kind-icon">Omit<wbr>Proxy<wbr>Methods<span class="tsd-signature-symbol">:</span> <a href="tssubstitute.html#omit" class="tsd-signature-type">Omit</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="tssubstitute.html#substitutemethods" class="tsd-signature-type">SubstituteMethods</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:104</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L104">types.ts:104</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -243,7 +439,7 @@
 					<div class="tsd-signature tsd-kind-icon">Parameterless<wbr>Function<wbr>Substitute<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:109</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L109">types.ts:109</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -278,12 +474,12 @@
 					<div class="tsd-signature tsd-kind-icon">Parameterless<wbr>Function<wbr>Substitute<wbr>Mixin<span class="tsd-signature-symbol">:</span> <a href="tssubstitute.html#substitutemixin" class="tsd-signature-type">SubstituteMixin</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:26</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L37">types.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Mixing type that adds the andDoes method to members that are
+							<p>Mixin type that adds the andDoes method to members that are
 							functions and do not define parameters</p>
 						</div>
 					</div>
@@ -294,7 +490,7 @@
 					<div class="tsd-signature tsd-kind-icon">Property<wbr>Substitute<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:121</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L133">types.ts:133</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -306,10 +502,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
 					<a name="substitutemethods" class="tsd-anchor"></a>
 					<h3>Substitute<wbr>Methods</h3>
-					<div class="tsd-signature tsd-kind-icon">Substitute<wbr>Methods<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"andDoes"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"received"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"receivedWithAnyArgs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"didNotReceive"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"didNotReceiveWithAnyArgs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"returns"</span></div>
+					<div class="tsd-signature tsd-kind-icon">Substitute<wbr>Methods<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"andDoes"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"received"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"receivedWithAnyArgs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"didNotReceive"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"didNotReceiveWithAnyArgs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"returns"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"returnsAsync"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:99</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L99">types.ts:99</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -329,7 +525,7 @@
 					<div class="tsd-signature tsd-kind-icon">Substitute<wbr>Mixin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:15</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L15">types.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -350,14 +546,14 @@
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-siganture">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
-														<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">TReturnType</span><span class="tsd-signature-symbol">[]</span></h5>
+														<h5>args: <span class="tsd-signature-type">TReturnType</span></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -375,7 +571,7 @@
 					<div class="tsd-signature tsd-kind-icon">Substitute<wbr>Of<span class="tsd-signature-symbol">:</span> <a href="tssubstitute.html#objectsubstitute" class="tsd-signature-type">ObjectSubstitute</a><span class="tsd-signature-symbol">&lt;</span><a href="tssubstitute.html#omitproxymethods" class="tsd-signature-type">OmitProxyMethods</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in substitute.ts:21</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/substitute.ts#L21">substitute.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -396,7 +592,7 @@
 					<div class="tsd-signature tsd-kind-icon">Terminating<wbr>Object<wbr>Transformation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in types.ts:65</li>
+							<li>Defined in <a href="https://github.com/testpossessed/ts-substitute/blob/ed9c53d/src/types.ts#L148">types.ts:148</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -411,7 +607,7 @@
 								<p>This can be read as:
 									for every member of T
 									if the member is a parameterless function, include a paramterless function of the same name that raturns void
-								if the member is a function with paramters, include a function with the same paraters that returns void</p>
+								if the member is a function with paramters, include a function with the same parameters that returns void</p>
 							</dd>
 						</dl>
 					</div>
@@ -456,6 +652,24 @@
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="../classes/tssubstitute.substitutecontext.html" class="tsd-kind-icon">Substitute<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="tssubstitute.html#argumenmatcher" class="tsd-kind-icon">Argumen<wbr>Matcher</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="tssubstitute.html#asyncfunctionsubstitute" class="tsd-kind-icon">Async<wbr>Function<wbr>Substitute</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+						<a href="tssubstitute.html#asyncfunctionsubstitutemixin" class="tsd-kind-icon">Async<wbr>Function<wbr>Substitute<wbr>Mixin</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="tssubstitute.html#asyncparameterlessfunctionsubstitute" class="tsd-kind-icon">Async<wbr>Parameterless<wbr>Function<wbr>Substitute</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+						<a href="tssubstitute.html#asyncparameterlessfunctionsubstitutemixin" class="tsd-kind-icon">Async<wbr>Parameterless<wbr>Function<wbr>Substitute<wbr>Mixin</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+						<a href="tssubstitute.html#asyncsubstitutemixin" class="tsd-kind-icon">Async<wbr>Substitute<wbr>Mixin</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="tssubstitute.html#functionsubstitute" class="tsd-kind-icon">Function<wbr>Substitute</a>

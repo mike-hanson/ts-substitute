@@ -65,7 +65,9 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h2 id="ts-substitute">ts-substitute</h2>
-				<p>A framework heavily influenced by and true to the API of <a href="https://github.com/nsubstitute/NSubstitute">NSubstitute</a> that supports TypeScript <em>development by contract</em> through mocking of dependencies declared as interfaces or types. </p>
+				<p>A framework heavily influenced by and true to the API of <a href="https://github.com/nsubstitute/NSubstitute">NSubstitute</a> that supports TypeScript <em>development by contract</em> through mocking of dependencies declared as interfaces or types.</p>
+				<h3 id="credit">Credit</h3>
+				<p>Credit for the core ideas of using Proxies and TypeScript types utilised in this library must be given to <a href="https://github.com/ffMathy">Mathias Lykkegaard</a> and the work he did on his <a href="https://github.com/ffMathy/FluffySpoon.JavaScript.Testing.Faking">Substitute</a> library.  I initially used his library but hit some problems and struggled to resolve them on the code base at the time, a reflection of my lack of knowledge rather than the code.  I decided to create my own library that was more limited in functionality and supported the way I work using Mathias&#39; ideas and work with it directly from my repo.  </p>
 				<h3 id="what-doesn-t-it-do">What doesn&#39;t it do</h3>
 				<p>First of all let us clarify what ts-substitute doesn&#39;t do.  Since it is designed specifically to support <em>development by contract</em> ts-substitute has no support for substituting instances of types.  As you will see, when you create a substitute using the factory method you provide a generic type parameter that determines the shape of the substitute.  We do not create an instance of this type nor do we support passing an instance to the factory method as other frameworks do.  Behind the scenes ts-substitute is using proxies as substitutes for the specified type.  We use the advanced type features of TypeScript to ensure the proxies look like the specified type so that editors and tools provide the rich experience they are designed for e.g. intellisense and static type checking.</p>
 				<p>If you are looking to do any of the following or anything similar then ts-substitute is not for you, a quick search of the internet will find other libraries that may be more appropriate:</p>
@@ -83,15 +85,19 @@ export interface IService {
 export class ServiceConsumer : {
     constructor(private myService: IService) {}
 }</code></pre>
-				<p>Then when you testing <em>ServiceConsumer</em> you can use ts-substitute to create a substitute for <em>IService</em> that can be tested for interactions and configured to return output specific to the test case.  That is it, simple but powerful.  Read on to learn more.</p>
+				<p>Then when testing <em>ServiceConsumer</em> you can use ts-substitute to create a substitute for <em>IService</em> that can be tested for interactions and configured to return output specific to the test case.  That is it, simple but powerful.  Read on to learn more.</p>
 				<h3 id="installation">Installation</h3>
-				<p>ts-substitute is published as an NPM package and can be installed as a development dependency with the following commmands</p>
-				<pre><code class="language-bash">npm install -D ts-substitute</code></pre>
-				<p>or</p>
-				<pre><code class="language-bash">yarn add ts-substitute --dev</code></pre>
+				<p>ts-substitute is not published as an NPM package but it can be installed directly from this repo as a development dependency with the following commmands.  However you should be aware that this will download and install the whole repo as it has not been prepared for use with npm yet.</p>
+				<pre><code class="language-bash">npm install -D https://gihub.com/testpossessed/ts-substitute.git</code></pre>
 				<h3 id="usage">Usage</h3>
 				<p>ts-substitute exports two static objects <em>Substitute</em> and <em>Arg</em> these need to be imported into a test module to be used.  <em>Substitute</em> is required. <em>Arg</em> is used for argument matching when asserting interactions between consumer and substitute so can be considered optional, but you will use it pretty often so the following is the most likely import statement you will use.</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { Substitute, Arg } <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-substitute'</span>;</code></pre>
+				<p>#WIP
+				This readme is very much a work in progress and should be completed at some point.  However the library was developed applying TDD so the tests should provide plenty of usage examples in the meantime.  Also TypeDoc has been setup to generate API documentation from comments.  The latest API documentation can be generated and viewed with using lite-server.</p>
+				<pre><code class="language-bash">npm start</code></pre>
+				<p>Or you can run</p>
+				<pre><code class="language-bash">npm run docgen</code></pre>
+				<p>Then open docs/index.html in a browser</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
