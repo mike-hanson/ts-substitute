@@ -16,8 +16,8 @@ type SubstituteMixin<TReturnType> = {
     /**
      * Configures a member of a substitute to return a specific value
      */
-    returns: (args: TReturnType) => void;
-}
+    returns: (...args: TReturnType[]) => void;
+};
 
 /**
  * Mixin type that adds the returnsAsync method to any substitute
@@ -27,8 +27,8 @@ type AsyncSubstituteMixin<TReturnType> = {
     /**
      * Configures a member to return a specific value wrapped in a promise
      */
-    returnsAsync: (args: TReturnType) => void
-}
+    returnsAsync: (...args: TReturnType[]) => void
+};
 
 /**
  * Mixin type that adds the andDoes method to members that are
@@ -43,7 +43,7 @@ type ParameterlessFunctionSubstituteMixin<TReturnType> = SubstituteMixin<TReturn
      * when the member is invoked by runtime code. 
      */
     andDoes: (func: () => void) => void;
-}
+};
 
 /**
  * Mixin type that adds the andDoes method to members that are
@@ -58,7 +58,7 @@ type AsyncParameterlessFunctionSubstituteMixin<TReturnType> = AsyncSubstituteMix
      * when the member is invoked by runtime code. 
      */
     andDoes: (func: () => void) => void;
-}
+};
 
 /**
  * Mixin type that adds the andDoes method to members that are
@@ -73,7 +73,7 @@ type FunctionSubstituteMixin<TArguments extends any[], TReturnType> = Substitute
      * when the member is invoked by runtime code. 
      */
     andDoes: (func: (...args: TArguments) => void) => void;
-}
+};
 
 /**
  * Mixin type that adds the andDoes method to members that are async
@@ -88,7 +88,7 @@ type AsyncFunctionSubstituteMixin<TArguments extends any[], TReturnType> = Async
      * when the member is invoked by runtime code. 
      */
     andDoes: (func: (...args: TArguments) => void) => void;
-}
+};
 
 /**
  * Union type representing an enum of the methods implemented on substitutes
@@ -150,7 +150,7 @@ type TerminatingObjectTransformation<T> = {
     T[P] extends () => infer _R ? () => void :
     T[P] extends (...args: infer F) => infer _R ? (...args: F) => void :
     T[P]
-}
+};
 
 /**
  * Transformation type that maps members from the specified interface
@@ -173,7 +173,7 @@ type ObjectSubstituteTransformation<T extends Object> = {
     T[P] extends (...args: infer F) => Promise<infer R> ? AsyncFunctionSubstitute<F, R> :
     T[P] extends (...args: infer F) => infer R ? FunctionSubstitute<F, R> :
     PropertySubstitute<T[P]>;
-}
+};
 
 /**
  * A substitute type compatible with objects that adds methods for asserting
@@ -216,7 +216,7 @@ export type ObjectSubstitute<T extends Object, K extends Object = T> = ObjectSub
      * If times is ommitted the assertion assumes 1 and fails if the member was accessed/invoked
      */
     didNotReceiveWithAnyArgs(times?: number): TerminatingObjectTransformation<K>;
-}
+};
 
 /**
  * Type definition for matcher functions returned by Args methods

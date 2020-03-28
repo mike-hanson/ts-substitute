@@ -87,8 +87,8 @@ export class ServiceConsumer : {
 }</code></pre>
 				<p>Then when testing <em>ServiceConsumer</em> you can use ts-substitute to create a substitute for <em>IService</em> that can be tested for interactions and configured to return output specific to the test case.  That is it, simple but powerful.  Read on to learn more.</p>
 				<h3 id="installation">Installation</h3>
-				<p>ts-substitute is not published as an NPM package but it can be installed directly from this repo as a development dependency with the following commmands.  However you should be aware that this will download and install the whole repo as it has not been prepared for use with npm yet.</p>
-				<pre><code class="language-bash">npm install -D https://gihub.com/testpossessed/ts-substitute.git</code></pre>
+				<p>ts-substitute is published as an NPM package under the @testpossessed namespace</p>
+				<pre><code class="language-bash">npm install -D @testpossessed/ts-substitute</code></pre>
 				<h3 id="usage">Usage</h3>
 				<p>ts-substitute exports two static objects <em>Substitute</em> and <em>Arg</em> these need to be imported into a test module to be used.  <em>Substitute</em> is required. <em>Arg</em> is used for argument matching when asserting interactions between consumer and substitute so can be considered optional, but you will use it pretty often so the following is the most likely import statement you will use.</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { Substitute, Arg } <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-substitute'</span>;</code></pre>

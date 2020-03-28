@@ -1,6 +1,6 @@
 {
-  "name": "ts-substitute",
-  "version": "1.0.0",
+  "name": "@testpossessed/ts-substitute",
+  "version": "1.1.0",
   "description": "A modern framework for creating substitutes from interfaces during TypeScript development based on the NSubstitute philosophy",
   "main": "dist/index.js",
   "scripts": {

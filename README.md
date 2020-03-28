@@ -24,16 +24,22 @@ export interface IService {
 
 export class ServiceConsumer : {
     constructor(private myService: IService) {}
+
+    callDoIt(arg1: string, arg2: string) {
+        const result = this.myService.doIt(arg1, arg2);
+
+        /// do something with result
+    }
 }
 ```
 
 Then when testing *ServiceConsumer* you can use ts-substitute to create a substitute for *IService* that can be tested for interactions and configured to return output specific to the test case.  That is it, simple but powerful.  Read on to learn more.
 
 ### Installation
-ts-substitute is not published as an NPM package but it can be installed directly from this repo as a development dependency with the following commmands.  However you should be aware that this will download and install the whole repo as it has not been prepared for use with npm yet.
+ts-substitute is published as an NPM package under the @testpossessed namespace
 
 ```bash
-npm install -D https://gihub.com/testpossessed/ts-substitute.git
+npm install -D @testpossessed/ts-substitute
 ```
 
 ### Usage
@@ -41,6 +47,30 @@ ts-substitute exports two static objects *Substitute* and *Arg* these need to be
 
 ```javascript
 import { Substitute, Arg } from 'ts-substitute';
+```
+
+With the imports taken care of you can write tests like this (jasmine syntax)
+
+```javascript
+
+describe('ServiceConsumer', () => {
+    let sub: SubstituteOf<IService>;
+    let service: ServiceConsumer;
+
+    beforeEach(() => {
+        sub = Substitute.for<IService>();
+        service = new ServiceConsumer(sub);
+    });
+
+    it('should use service', () => {
+        sub.doIt(Arg.any<string>(), Arg.any<string>()).returns('return this');
+
+        service.callDoIt('one', 'two');
+
+        expect(sub.recieved().doIt('one', 'two'));
+    });
+});
+
 ```
 
 #WIP

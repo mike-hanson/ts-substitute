@@ -10,7 +10,7 @@ describe('SubstituteContext', () => {
     });
 
     it('should be defined', () => {
-        assert.isDefined(target)
+        assert.isDefined(target);
     });
 
     it('should implement a property to get the root proxy', () => {

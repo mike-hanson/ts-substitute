@@ -131,10 +131,13 @@ export class SubstituteContext {
         if (this.isReturnsPending === true) {
             if (this.isDefined(this.rootContext)) {
                 if (this.rootContext.hasCalls) {
-                    this.rootContext.convertLastCallToReturn(args[0], this.isReturnsAsyncPending);
+                    if(this.isReturnsAsyncPending) {
+                        this.rootContext.convertLastCallToReturnAsync(...args);
+                    } else {
+                        this.rootContext.convertLastCallToReturn(...args);
+                    }
                 } else {
-                    const argValue = args[0];
-                    this.rootContext.returns(argValue);
+                    this.rootContext.returns(...args);
                 }
                 this.isReturnsPending = false;
                 this.isReturnsAsyncPending = false;

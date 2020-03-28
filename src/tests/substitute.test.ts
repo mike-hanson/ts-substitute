@@ -33,7 +33,23 @@ describe('Substitute', () => {
         sub.numberProp.returns(5);
         
         assert.equal(sub.numberProp, 5);
+    });    
+
+    it('should be able to configure a sequence of return values for a property', () => {
+        sub.numberProp.returns(5, 6);
+        
+        assert.equal(sub.numberProp, 5);
+        assert.equal(sub.numberProp, 6);
     });
+
+    it('should return last value in sequence configured for a property once end is reached', () => {
+        sub.numberProp.returns(5, 6);
+        
+        assert.equal(sub.numberProp, 5);
+        assert.equal(sub.numberProp, 6);
+        assert.equal(sub.numberProp, 6);
+    });
+    
 
     it('should be able to configure a return for a method call with literal values', () => {
         const expected = 'returned';
@@ -77,7 +93,7 @@ describe('Substitute', () => {
         
         const actual = await sub.asyncMethod(numberArg, stringArg);
 
-        assert.equal(actual, expected)
+        assert.equal(actual, expected);
     });
 
     it('should be able to configure multiple return values for same method with different args', () => {        
@@ -90,6 +106,63 @@ describe('Substitute', () => {
         const actualTwo = sub.stringMethod('two', 2);
         assert.equal(actualTwo, 'TWO');
     });
+
+    it('should be able to configure multiple return values for same method with same args', () => {        
+        sub.stringMethod('one', 1).returns('ONE', 'TWO');
+
+        const actualOne = sub.stringMethod('one', 1);
+        assert.equal(actualOne, 'ONE');
+
+        const actualTwo = sub.stringMethod('one', 1);
+        assert.equal(actualTwo, 'TWO');
+    });    
+
+    it('should be able to configure multiple return values for same method with same args', () => {        
+        sub.stringMethod('one', 1).returns('ONE', 'TWO');
+
+        const actualOne = sub.stringMethod('one', 1);
+        assert.equal(actualOne, 'ONE');
+
+        const actualTwo = sub.stringMethod('one', 1);
+        assert.equal(actualTwo, 'TWO');
+    });     
+
+    it('should return last value in sequence configure return for method', () => {        
+        sub.stringMethod('one', 1).returns('ONE', 'TWO');
+
+        const actualOne = sub.stringMethod('one', 1);
+        assert.equal(actualOne, 'ONE');
+
+        const actualTwo = sub.stringMethod('one', 1);
+        assert.equal(actualTwo, 'TWO');
+
+        const actualThree = sub.stringMethod('one', 1);
+        assert.equal(actualThree, 'TWO');
+    });  
+
+    it('should be able to configure multiple return values for same async method with same args', async () => {        
+        sub.asyncMethod(1, 'one').returnsAsync(true, false);
+
+        const actualOne = await sub.asyncMethod(1, 'one');
+        assert.equal(actualOne, true);
+
+        const actualTwo = await sub.asyncMethod(1, 'one');
+        assert.equal(actualTwo, false);
+    }); 
+
+    it('should return last value in sequence configure return for async method', async () => {        
+        sub.asyncMethod(1, 'one').returnsAsync(true, false);
+
+        const actualOne = await sub.asyncMethod(1, 'one');
+        assert.equal(actualOne, true);
+
+        const actualTwo = await sub.asyncMethod(1, 'one');
+        assert.equal(actualTwo, false);
+
+        const actualThree = await sub.asyncMethod(1, 'one');
+        assert.equal(actualThree, false);
+    });
+
 
     it('should not throw exception on valid assertion that a property was assigned a value', () => {
         sub.numberProp = 1;
@@ -147,7 +220,7 @@ describe('Substitute', () => {
     it('should not throw exception on valid assertion that a method with parameters was called using Arg.any', () => {
         sub.voidMethodWithArg('something');
 
-        sub.received().voidMethodWithArg(Arg.any('String'))
+        sub.received().voidMethodWithArg(Arg.any('String'));
     });
 
     it('should throw exception on failed assertion that a method with parameters was called using Arg.any', () => {
