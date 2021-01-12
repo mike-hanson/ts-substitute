@@ -6,7 +6,7 @@ const argument_1 = require("../argument");
 describe('MemberContext', () => {
     let target;
     beforeEach(() => {
-        target = new member_context_1.MemberContext("something");
+        target = new member_context_1.MemberContext('something');
     });
     it('should be defined', () => {
         chai_1.assert.isDefined(target);
@@ -14,8 +14,12 @@ describe('MemberContext', () => {
     it('should default to no configured return', () => {
         chai_1.assert.isFalse(target.hasConfiguredReturnValue);
     });
-    it('should provide configured return once set', () => {
+    it('should indicate a configured return value exists once set', () => {
         target.returns(1);
+        chai_1.assert.isTrue(target.hasConfiguredReturnValue);
+    });
+    it('should indicate a configured return value exists once set with sequence of values', () => {
+        target.returns(1, 2);
         chai_1.assert.isTrue(target.hasConfiguredReturnValue);
     });
     it('should default to no assigned value', () => {
@@ -32,6 +36,13 @@ describe('MemberContext', () => {
         const configuredReturn = 1;
         target.setValue(assignedValue);
         target.returns(configuredReturn);
+        chai_1.assert.isFalse(target.hasAssignedValue);
+        chai_1.assert.isTrue(target.hasConfiguredReturnValue);
+    });
+    it('should reset any assigned value when configured return set to sequcne', () => {
+        const assignedValue = 'something';
+        target.setValue(assignedValue);
+        target.returns(1, 2);
         chai_1.assert.isFalse(target.hasAssignedValue);
         chai_1.assert.isTrue(target.hasConfiguredReturnValue);
     });
@@ -92,7 +103,11 @@ describe('MemberContext', () => {
     });
     it('should return collection of argument objects for last call', () => {
         target.addCall([1, 'something', false]);
-        const expected = [new argument_1.Argument(1), new argument_1.Argument('something'), new argument_1.Argument(false)];
+        const expected = [
+            new argument_1.Argument(1),
+            new argument_1.Argument('something'),
+            new argument_1.Argument(false)
+        ];
         const actual = target.lastCallArguments;
         chai_1.assert.deepEqual(actual, expected);
     });

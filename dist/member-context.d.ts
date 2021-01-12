@@ -1,7 +1,3 @@
-/**
- * @module tsSubstitute
- *
- */
 import { Argument } from './argument';
 /**
  * Provides the internal context for a substitute member, not intended for programatic usage
@@ -16,6 +12,8 @@ export declare class MemberContext {
     private configuredValue;
     private lastAssignedValue;
     private lastCallArgs;
+    isConfiguredValueSequence: boolean;
+    configuredValueNextIndex: number;
     /**
      * NOT FOR PROGRAMATIC USE
      *
@@ -25,39 +23,39 @@ export declare class MemberContext {
     /**
      * The current value when the member is a property
      */
-    readonly currentValue: any;
+    get currentValue(): any;
     /**
      * Returns string representation of all calls
      */
-    readonly allCallsString: string;
+    get allCallsString(): string;
     /**
      * The currently assigned values as a string
      */
-    readonly assignedValuesString: string;
+    get assignedValuesString(): string;
     /**
      * Indicates whether a property has a value that has been assigned programtically
      */
-    readonly hasAssignedValue: boolean;
+    get hasAssignedValue(): boolean;
     /**
      * Indicates whether the member has any calls
      */
-    readonly hasCalls: boolean;
+    get hasCalls(): boolean;
     /**
      * Indicates whether a return value has been configured during testing
      */
-    readonly hasConfiguredReturnValue: boolean;
+    get hasConfiguredReturnValue(): boolean;
     /**
      * Returns the arguments for the last call recorded
      */
-    readonly lastCallArguments: Array<Argument>;
+    get lastCallArguments(): Array<Argument>;
     /**
      * Returns the values for arguments to the last call recorded
      */
-    readonly lastCallArgumentValues: Array<any>;
+    get lastCallArgumentValues(): Array<any>;
     /**
      * Returns a string representation of arguments to the last call
      */
-    readonly lastCallArgumentString: string;
+    get lastCallArgumentString(): string;
     /**
      * Records a call to the method member
      *
@@ -67,9 +65,15 @@ export declare class MemberContext {
     /**
      * Converts the last call to a method return setup
      *
-     * @param valueToReturn The value to be returned
+     * @param valuesToReturn The values to be returned insequence
      */
-    convertLastCallToReturn(valueToReturn: any, isAsyncReturn?: boolean): void;
+    convertLastCallToReturn(...valuesToReturn: any[]): void;
+    /**
+    * Converts the last call to an async method return setup
+    *
+    * @param valuesToReturn The values to be returned in sequence
+    */
+    convertLastCallToReturnAsync(...valuesToReturn: any[]): void;
     /**
      * Indicates whether a return has been configured for method calls with the specified args
      *
@@ -78,8 +82,6 @@ export declare class MemberContext {
     hasConfiguredMethodReturn(args: Array<any>): boolean;
     /**
      * Gets the configured return value for a call
-     *
-     * @param args Arguments to match for return value
      */
     getReturnForCall(): any;
     /**
@@ -105,9 +107,9 @@ export declare class MemberContext {
     /**
      * Configures a value to be returned by the member
      *
-     * @param valueToReturn Value to be returned for the member
+     * @param valuesToReturn Value to be returned for the member
      */
-    returns(valueToReturn: any): void;
+    returns(...valuesToReturn: any[]): void;
     /**
      * Sets a specific value for the member
      *

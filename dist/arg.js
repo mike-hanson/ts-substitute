@@ -1,5 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Arg = void 0;
+/**
+ * Argument matcher for assertions
+ *  */
 class Arg {
     static any(type) {
         if (!type) {

@@ -1,13 +1,7 @@
 /**
  * Defines various types that allow the TypeScript compiler to understand
  * what substitutes look like and how they should behave.
- * @module tsSubstitute
  */
-
-/**
- * Type for omitting selected members from a type 
- */
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
 /**
  * Mixin type that adds the returns method to all substitutes

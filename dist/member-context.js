@@ -1,9 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * @module tsSubstitute
- *
- */
+exports.MemberContext = void 0;
 const argument_1 = require("./argument");
 /**
  * Provides the internal context for a substitute member, not intended for programatic usage
@@ -26,7 +23,18 @@ class MemberContext {
      * The current value when the member is a property
      */
     get currentValue() {
-        return this.hasConfiguredReturnValue ? this.configuredValue : this.lastAssignedValue;
+        if (!this.hasConfiguredReturnValue) {
+            return this.lastAssignedValue;
+        }
+        if (!this.isConfiguredValueSequence) {
+            return this.configuredValue;
+        }
+        const result = this.configuredValue[this.configuredValueNextIndex];
+        this.configuredValueNextIndex++;
+        if (this.configuredValueNextIndex === this.configuredValue.length) {
+            this.configuredValueNextIndex--;
+        }
+        return result;
     }
     /**
      * Returns string representation of all calls
@@ -88,13 +96,31 @@ class MemberContext {
     /**
      * Converts the last call to a method return setup
      *
-     * @param valueToReturn The value to be returned
+     * @param valuesToReturn The values to be returned insequence
      */
-    convertLastCallToReturn(valueToReturn, isAsyncReturn = false) {
+    convertLastCallToReturn(...valuesToReturn) {
         this.methodReturnSetups.push({
             arguments: this.lastCallArgs,
-            returnValue: valueToReturn,
-            isAsync: isAsyncReturn
+            returnValues: valuesToReturn,
+            isAsync: false,
+            nextIndex: 0
+        });
+        this.calls.pop();
+        if (this.calls.length > 0) {
+            this.lastCallArgs = this.calls[this.calls.length - 1];
+        }
+    }
+    /**
+    * Converts the last call to an async method return setup
+    *
+    * @param valuesToReturn The values to be returned in sequence
+    */
+    convertLastCallToReturnAsync(...valuesToReturn) {
+        this.methodReturnSetups.push({
+            arguments: this.lastCallArgs,
+            returnValues: valuesToReturn,
+            isAsync: true,
+            nextIndex: 0
         });
         this.calls.pop();
         if (this.calls.length > 0) {
@@ -120,15 +146,17 @@ class MemberContext {
     }
     /**
      * Gets the configured return value for a call
-     *
-     * @param args Arguments to match for return value
      */
     getReturnForCall() {
         const args = this.lastCallArgs;
         for (const setup of this.methodReturnSetups) {
             const isMatch = this.argumentsMatch(setup.arguments, args);
             if (isMatch === true) {
-                const returnValue = setup.returnValue;
+                const returnValue = setup.returnValues[setup.nextIndex];
+                setup.nextIndex++;
+                if (setup.nextIndex === setup.returnValues.length) {
+                    setup.nextIndex--;
+                }
                 return setup.isAsync ? Promise.resolve(returnValue) : returnValue;
             }
         }
@@ -183,12 +211,14 @@ class MemberContext {
     /**
      * Configures a value to be returned by the member
      *
-     * @param valueToReturn Value to be returned for the member
+     * @param valuesToReturn Value to be returned for the member
      */
-    returns(valueToReturn) {
+    returns(...valuesToReturn) {
         this.resetAssignedValues();
         this.hasConfiguredValue = true;
-        this.configuredValue = valueToReturn;
+        this.isConfiguredValueSequence = valuesToReturn.length > 1;
+        this.configuredValue = valuesToReturn;
+        this.configuredValueNextIndex = 0;
     }
     /**
      * Sets a specific value for the member

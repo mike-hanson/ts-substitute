@@ -1,6 +1,5 @@
 
 /**
- * @module tsSubstitute
  * @preferred
  * @external
  */

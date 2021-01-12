@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Substitute = void 0;
 const substitute_context_1 = require("./substitute-context");
 /**
  * Static factory for creating substitutes

@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -32,6 +33,17 @@ describe('Substitute', () => {
         sub.numberProp.returns(5);
         chai_1.assert.equal(sub.numberProp, 5);
     });
+    it('should be able to configure a sequence of return values for a property', () => {
+        sub.numberProp.returns(5, 6);
+        chai_1.assert.equal(sub.numberProp, 5);
+        chai_1.assert.equal(sub.numberProp, 6);
+    });
+    it('should return last value in sequence configured for a property once end is reached', () => {
+        sub.numberProp.returns(5, 6);
+        chai_1.assert.equal(sub.numberProp, 5);
+        chai_1.assert.equal(sub.numberProp, 6);
+        chai_1.assert.equal(sub.numberProp, 6);
+    });
     it('should be able to configure a return for a method call with literal values', () => {
         const expected = 'returned';
         const stringArg = 'something';
@@ -56,7 +68,7 @@ describe('Substitute', () => {
         const result = sub.stringMethod(stringArg, numberArg);
         chai_1.assert.equal(result, 'returned');
     });
-    it('should be able to configure a return value for an async method', () => __awaiter(this, void 0, void 0, function* () {
+    it('should be able to configure a return value for an async method', () => __awaiter(void 0, void 0, void 0, function* () {
         const expected = true;
         const stringArg = 'something';
         const numberArg = 1;
@@ -72,6 +84,45 @@ describe('Substitute', () => {
         const actualTwo = sub.stringMethod('two', 2);
         chai_1.assert.equal(actualTwo, 'TWO');
     });
+    it('should be able to configure multiple return values for same method with same args', () => {
+        sub.stringMethod('one', 1).returns('ONE', 'TWO');
+        const actualOne = sub.stringMethod('one', 1);
+        chai_1.assert.equal(actualOne, 'ONE');
+        const actualTwo = sub.stringMethod('one', 1);
+        chai_1.assert.equal(actualTwo, 'TWO');
+    });
+    it('should be able to configure multiple return values for same method with same args', () => {
+        sub.stringMethod('one', 1).returns('ONE', 'TWO');
+        const actualOne = sub.stringMethod('one', 1);
+        chai_1.assert.equal(actualOne, 'ONE');
+        const actualTwo = sub.stringMethod('one', 1);
+        chai_1.assert.equal(actualTwo, 'TWO');
+    });
+    it('should return last value in sequence configure return for method', () => {
+        sub.stringMethod('one', 1).returns('ONE', 'TWO');
+        const actualOne = sub.stringMethod('one', 1);
+        chai_1.assert.equal(actualOne, 'ONE');
+        const actualTwo = sub.stringMethod('one', 1);
+        chai_1.assert.equal(actualTwo, 'TWO');
+        const actualThree = sub.stringMethod('one', 1);
+        chai_1.assert.equal(actualThree, 'TWO');
+    });
+    it('should be able to configure multiple return values for same async method with same args', () => __awaiter(void 0, void 0, void 0, function* () {
+        sub.asyncMethod(1, 'one').returnsAsync(true, false);
+        const actualOne = yield sub.asyncMethod(1, 'one');
+        chai_1.assert.equal(actualOne, true);
+        const actualTwo = yield sub.asyncMethod(1, 'one');
+        chai_1.assert.equal(actualTwo, false);
+    }));
+    it('should return last value in sequence configure return for async method', () => __awaiter(void 0, void 0, void 0, function* () {
+        sub.asyncMethod(1, 'one').returnsAsync(true, false);
+        const actualOne = yield sub.asyncMethod(1, 'one');
+        chai_1.assert.equal(actualOne, true);
+        const actualTwo = yield sub.asyncMethod(1, 'one');
+        chai_1.assert.equal(actualTwo, false);
+        const actualThree = yield sub.asyncMethod(1, 'one');
+        chai_1.assert.equal(actualThree, false);
+    }));
     it('should not throw exception on valid assertion that a property was assigned a value', () => {
         sub.numberProp = 1;
         sub.received().numberProp = 1;

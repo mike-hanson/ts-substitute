@@ -1,12 +1,7 @@
 /**
  * Defines various types that allow the TypeScript compiler to understand
  * what substitutes look like and how they should behave.
- * @module tsSubstitute
  */
-/**
- * Type for omitting selected members from a type
- */
-declare type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /**
  * Mixin type that adds the returns method to all substitutes
  */
@@ -14,7 +9,7 @@ declare type SubstituteMixin<TReturnType> = {
     /**
      * Configures a member of a substitute to return a specific value
      */
-    returns: (args: TReturnType) => void;
+    returns: (...args: TReturnType[]) => void;
 };
 /**
  * Mixin type that adds the returnsAsync method to any substitute
@@ -23,7 +18,7 @@ declare type AsyncSubstituteMixin<TReturnType> = {
     /**
      * Configures a member to return a specific value wrapped in a promise
      */
-    returnsAsync: (args: TReturnType) => void;
+    returnsAsync: (...args: TReturnType[]) => void;
 };
 /**
  * Mixin type that adds the andDoes method to members that are

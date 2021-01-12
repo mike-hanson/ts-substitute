@@ -27,7 +27,7 @@ export declare class SubstituteContext {
      *
      * @returns Proxy
      */
-    readonly rootProxy: any;
+    get rootProxy(): any;
     private handleRootApply;
     private handleRootGet;
     private handleRootSet;

@@ -1,6 +1,3 @@
-/**
- * @module tsSubstitute
- */
 import { MemberContext } from './member-context';
 
 /**

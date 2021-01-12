@@ -1,7 +1,5 @@
 /**
  * Internal wrapper for arguments passed to method calls
- * 
- * @module tsSubstitute
  */
 export class Argument {
 

@@ -1,5 +1,4 @@
 /**
- * @module tsSubstitute
  * @preferred
  * @external
  */

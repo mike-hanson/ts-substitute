@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Argument = void 0;
 /**
  * Internal wrapper for arguments passed to method calls
- *
- * @module tsSubstitute
  */
 class Argument {
     /**

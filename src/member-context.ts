@@ -1,7 +1,3 @@
-/**
- * @module tsSubstitute
- * 
- */
 import { Argument } from './argument';
 import { MethodReturnSetup } from './method-return-setup';
 

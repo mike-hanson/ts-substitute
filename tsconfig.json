@@ -25,11 +25,10 @@
 		"dist"
 	],
 	"typedocOptions": {
-		"mode": "modules",
 		"out": "docs",
 		"name": "tsSubstitute - An interface based mocking framework",
 		"exclude": "src/tests/**/*.*",
-		"ignoreCompilerErrors": true,
-		"excludePrivate": true
+		"excludePrivate": true,
+		"entryPoints": ["src/index.ts"],
 	}
 }

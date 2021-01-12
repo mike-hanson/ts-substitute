@@ -1,6 +1,6 @@
 {
   "name": "@testpossessed/ts-substitute",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A modern framework for creating substitutes from interfaces during TypeScript development based on the NSubstitute philosophy",
   "main": "dist/index.js",
   "scripts": {
@@ -29,15 +29,14 @@
   },
   "homepage": "https://github.com/testpossessed/ts-substitute#readme",
   "devDependencies": {
-    "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.6",
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.2.0",
     "chai": "^4.2.0",
-    "lite-server": "^2.5.3",
-    "mocha": "^6.0.2",
-    "ts-node": "^8.0.3",
-    "typedoc": "^0.14.2",
-    "typedoc-plugin-external-module-name": "^2.0.0",
-    "typedoc-plugin-internal-external": "^2.0.1",
-    "typescript": "^3.4.1"
-  }
+    "lite-server": "^2.6.1",
+    "mocha": "^8.2.1",
+    "ts-node": "^9.1.1",
+    "typedoc": "^0.20.14",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {}
 }

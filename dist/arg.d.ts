@@ -1,4 +1,7 @@
 import { ArgumenMatcher } from './types';
+/**
+ * Argument matcher for assertions
+ *  */
 export declare class Arg {
     static any(): ArgumenMatcher & any;
     static any<T extends 'String'>(type: T): ArgumenMatcher & any;

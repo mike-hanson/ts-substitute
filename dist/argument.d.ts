@@ -1,7 +1,5 @@
 /**
  * Internal wrapper for arguments passed to method calls
- *
- * @module tsSubstitute
  */
 export declare class Argument {
     private value;
@@ -14,15 +12,15 @@ export declare class Argument {
     /**
      * Description of the argument derived from the type and value
      */
-    readonly description: string;
+    get description(): string;
     /**
      * The original value of the argument
      */
-    readonly originalValue: any;
+    get originalValue(): any;
     /**
      * The type of the argument
      */
-    readonly type: string;
+    get type(): string;
     /**
      * Determine the type of a value
      *

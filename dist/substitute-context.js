@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * @module tsSubstitute
- */
+exports.SubstituteContext = void 0;
 const member_context_1 = require("./member-context");
 /**
  * Provides the internal context for a substitute, not intended for programatic usage
@@ -118,11 +116,15 @@ class SubstituteContext {
         if (this.isReturnsPending === true) {
             if (this.isDefined(this.rootContext)) {
                 if (this.rootContext.hasCalls) {
-                    this.rootContext.convertLastCallToReturn(args[0], this.isReturnsAsyncPending);
+                    if (this.isReturnsAsyncPending) {
+                        this.rootContext.convertLastCallToReturnAsync(...args);
+                    }
+                    else {
+                        this.rootContext.convertLastCallToReturn(...args);
+                    }
                 }
                 else {
-                    const argValue = args[0];
-                    this.rootContext.returns(argValue);
+                    this.rootContext.returns(...args);
                 }
                 this.isReturnsPending = false;
                 this.isReturnsAsyncPending = false;
